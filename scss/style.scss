@@ -1,0 +1,1562 @@
+/*_____VAR_____*/
+$logoColor: #4A99D3;
+$fontColorFirst: #0F001A;
+$fontColorSecond: #260041;
+$fontsColorThird:#ffff;
+/*NullStyle*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+:focus,:active{
+	outline: none;
+}
+a:focus,a:active{
+	outline: none;
+}
+nav,footer,header,aside{
+	display: block;
+}
+html,body{
+	height:100%;
+	width:100%;
+	font-size:16px;
+	font-weight: 400;
+	color: $fontColorFirst;
+	font-family: 'Montserrat', ;
+}
+input,button,textarea{
+	font-family:inherit;
+}
+button{
+	cursor: pointer;
+}
+a,a:visited{
+	text-decoration: none;	
+}
+a:visited{
+	color: inherit;	
+}
+ul li{
+	list-style: none;
+}
+/*-----Fonts----------*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap'); 
+/*font-family: 'Montserrat', sans-serif;  400 500 700*/
+/*____________________TechnoBlock________________*/
+.wrapper{
+	min-height: 100vh;
+	overflow: hidden;
+	display: flex;
+	flex-direction:column;
+}
+.container{	
+	box-sizing: content-box;
+	max-width: 950px;
+	margin: 0 auto;
+}
+/*____________________Header________________*/
+.header {
+	position: absolute;/*Для того чтобы header выпадал ис основного потока и градиент main ,начинался с самого верха */
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index:3;	
+	&__row {
+		padding:0 5px ;
+		margin: 40px 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__logo {
+		padding-left:10px ;
+		display: block;
+		flex: 1 0 40%;
+		font-size: 40px;
+		font-weight: 700;
+		color: $logoColor;
+		line-height: 42px;				
+	}
+	&__nav {		
+		margin-top: 9px;
+		flex: 0 1 320px;				
+	}
+}
+.nav {	
+	&__lits {
+		display: flex;
+		justify-content: space-between;		
+	}
+	&__item {
+		flex: 0 1 110px;	
+		&:nth-child(2){
+			padding-right: 3.5%;
+			}
+		
+		}
+	&__link{
+		text-align: center;			
+		display: block;							
+		font-size: 18px;
+		line-height: 19px;
+			
+		&:link{
+			color:$fontColorFirst;
+		}
+		&:visited{
+			color:$fontColorFirst;	
+		}
+		&:hover{		
+			transform: scale(1.1,1.1);	
+			color: $logoColor;
+			font-weight: 500;	
+			transition: all 0.5s;					
+		}
+		&:active{		
+			transform: scale(1,1);										
+		}
+		&_active{
+			color:$logoColor;
+			&:visited{
+				color:$logoColor;	
+			}	
+			/*Добавил клас active и подсветил home*/		
+		}
+		
+	}
+}
+/*____________________PAGES________________*/
+/**/
+.page{	
+	flex: 1 1 auto;
+	&__main {
+		height: 100%;	
+	}
+}
+/*____________________Button________________*/	
+.button {	
+	margin:0 5px ;
+	border-radius: 5px;
+	padding: 30px 90px;
+	&__google {	
+		&_blue {				
+			background: $logoColor url("../img/icons/google_play_color.svg") center / 75% no-repeat;			
+			&:hover {	
+				transition: all 0.5s;
+				transform: scale(1.1,1.1);				
+			 }
+			 &:active{
+				transform: scale(1,1);	
+			 }
+		}
+		&_black{
+			background: black  url("../img/icons/google_play_w.svg") center / 75%  no-repeat;
+			&:hover {	
+				transition: all 0.5s;
+				transform: scale(1.1,1.1);							
+			 }
+			 &:active{
+				transform: scale(1,1);	
+			 }
+		}
+	}	
+	&__app-stor {
+		background: url("../img/icons/app_stor.svg") center / 75% no-repeat;
+		&_blue {
+			background-color:$logoColor;				
+			&:hover {	
+				transition: all 0.5s;
+				transform: scale(1.1,1.1);							
+			 }
+			 &:active{
+				transform: scale(1,1);	
+			 }
+		}
+		&_black{
+			background-color: black;
+			&:hover {	
+				transition: all 0.5s;
+				transform: scale(1.1,1.1);							
+			 }
+			 &:active{
+				transform: scale(1,1);	
+			 }			
+		}
+	}
+}
+/*____________________Card________________*/	
+.card {		
+	position: relative;
+	z-index: 4;
+	left: 0;
+	top: 0;	
+	width: 380px;
+	height: 525px;	
+	box-shadow: 5px 20px 50px rgba(74, 153, 211, 0.2);
+	border-radius: 10px;	
+	display:flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	&_bg1 {
+		background: white url("../img/what_we_do_page/1.svg") 30.2% 12%  /54.7% no-repeat;	
+	}
+	&_bg2 {/*Так как картинка №2 должна была вылазить из-за границы блока мне пришлось вставить ее через img и выдвинуть за границу -margin*/
+		background-color: white;
+		&>.card__items{
+			height: 68%			
+		}	
+		&>.card__items>img{
+			width: 85%;
+			height: 85%;
+			margin: -170px 0 45px 20px;					
+		}
+		&>.card__items>a{
+			margin-top: 50px;
+		}
+	}
+	&_bg3 {
+		background: white  url("../img/what_we_do_page/2.svg") 40% 10%  /45% no-repeat;	
+	}
+	&__items {
+		margin: 48px;
+		height: 46%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+	&__title {
+		letter-spacing: 0.02em;
+		font-weight: 500;
+		font-size: 20px;
+	}
+	&__text {
+		margin-top: 20px;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 26px;
+	}
+	&__link {	
+		margin-top: 64px;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 214%	;
+		letter-spacing: 0.05em;		
+		color:$logoColor;		
+		background: url("../img/icons/arrow_24px.svg") 40% 0 / 10% no-repeat;	
+		&:hover{
+			text-decoration: underline;
+		}		
+	}
+	&__label{
+		visibility: hidden;
+		position: absolute;
+	}
+	a.card__link{
+		color:$logoColor;
+	}
+}
+/*____________________Main________________*/	
+.main {	
+	position: relative;	
+	height:768px;
+	background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(74,153,211,0.208018241476278) 100%);
+	&:after{
+		content:'';
+		z-index: 1;
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;			
+		background:
+		url("../img/logo_page/mockup1.png") 70% 75% / auto no-repeat , 
+		url("../img/logo_page/mockup2.png") 81% 68% / auto no-repeat  ;		
+		box-shadow: 0px 4px 16px rgba(75, 0, 129, 0.26);	 	
+	}	
+	&__items {		
+		position: relative;
+		top: 139px;
+		left: 8px;
+		z-index: 2;	
+		height: 540px;
+		display: flex;
+		flex-direction: column;
+		justify-content:space-evenly;		
+	}
+	&__texts {		
+		padding: 43px 0 0  5px;		
+		color: $fontColorSecond;	
+	}
+	&__title {
+		font-weight:500;
+		font-size: 50px;
+		line-height: 140%;
+		letter-spacing: 0.02em;
+		max-width:65%;
+	}
+	&__text {
+		padding-top: 1%;
+		margin-top: 8px;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 36px;
+		width: 60%;
+	}
+	&__buttons {				
+		display: flex;	
+		width:170px ;	
+		justify-content: space-between;				
+	}
+}
+/*__________________whatWeDo________________*/
+.whatWeDo {		
+		position: relative;					
+		background:
+		url("../img/what_we_do_page/blue_right.svg") right top / auto no-repeat,
+		url("../img/what_we_do_page/left_braun.png") left bottom / auto no-repeat;		
+		&:before{
+			content:'';			
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;			
+			background:
+			url("../img/what_we_do_page/circles.svg") 78% 6% / auto no-repeat,
+			url("../img/what_we_do_page/circles.svg") 25% 45% / auto no-repeat,
+			url("../img/what_we_do_page/circles.svg") 80% 94% / auto no-repeat;	
+		 } 
+	&__container {			
+		& input {
+			position: absolute;
+			visibility: hidden;
+		}			
+	}	
+	&__title {
+		top: 145px;		
+		width:395px;
+		position: absolute;			
+		font-weight: 500;
+		font-size: 36px;
+		line-height: 128%;		
+		letter-spacing: 0.05em;
+		color:$fontColorSecond;
+	}
+	&__columns {		
+		position: relative;
+		z-index: 4;
+		left: 0;
+		top: 0;		
+		margin-left: 100px;		
+		width: 867px;			
+		display: flex;		
+		/*Ставил фиксированую высото только чтобы было перфект пиксель .*/	
+		&>:first-child{			
+			margin: 0 84px 34px 0 ;
+			flex-direction: column;
+			display: flex;
+			justify-content: center;								
+			}
+		&>:last-child{
+			height: 100%;		
+			margin: 10px 0 0 25px;		
+			display: flex;
+			flex-direction: column;
+			justify-content:space-evenly;	
+			&>.card{
+				margin: 45px 0 ;
+			}
+
+		}
+
+	}	
+}
+/*________________howItWorks_____________________*/
+.howItWorks {
+	background: rgba(74, 153, 211, 0.1);	
+	&__titls {
+		margin-top: 5px;
+		display: block;
+		text-align: center;
+		padding-top: 95px;
+		font-weight: 700;
+		font-size: 26px;
+		line-height: 27px;
+		color: $logoColor;
+	}
+	&__row {
+		margin-top: 95px;
+		display: flex;
+		justify-content: space-around;
+		padding-bottom: 90px;		
+	}
+	&__column {	
+		padding: 0 7px;
+		display: flex;		
+		flex-direction:column ;
+		color: $fontColorSecond;
+		height: 170px;
+		justify-content: flex-end;
+		&_bg1 {
+			background: url("../img/howIt_work_page/accaunt.svg") center top / auto no-repeat;
+		}
+		&_bg2 {
+			background: url("../img/howIt_work_page/security.svg") center top / auto no-repeat;
+		}
+		&_bg3 {
+			background: url("../img/howIt_work_page/happy.svg") center top / auto no-repeat;
+		}
+	}
+	&__columnTitle {
+		text-align: center;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 19px;	
+	}
+	&__columnText {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 26px;
+		text-align: center;
+	}
+}
+/*_________WhatClientSay ________*/
+.WhatClientSay {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	&:before{
+		content:'';
+		position: absolute;
+		z-index: 0;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background:
+		url("../img/client_say/bg.svg") left 66.5%/ auto no-repeat,
+		url("../img/what_we_do_page/circles.svg") right center / auto no-repeat;		
+	 }	
+	&__container {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		transition:  all .5s linear;	
+			& input {
+				position: absolute;
+				visibility: hidden;
+			}
+	}
+	&__title {
+		color: $fontColorFirst;
+		padding-top:140px;
+		font-weight: 700;
+		font-size: 26px;
+		line-height: 27px;			
+		text-align: center;
+	}		
+}
+.slider {	
+	margin-top: 17px;
+	display: flex;	
+	justify-content:space-between;
+	height:675px;
+	width:100%;	
+		&__column {
+			transition:  all .5s linear;					
+			position: relative;	
+			z-index: 3;		
+			height: 300%;		
+			width: 400px;						
+			display: flex;
+			flex-direction: column;	
+			&_container{
+				height: 100%;				
+			}		
+			&_visible {
+				height:519px;
+				width: 400px;
+				overflow: hidden;							
+			}
+			&_img1 {
+				position: relative;
+				z-index: 2;
+				height: 100%;
+				background: url("../img/client_say/2.png") left 99% /contain no-repeat;
+			}
+			&_img2 {	
+				position: relative;
+				z-index: 2;	
+				height: 100%;		
+				background: url("../img/client_say/1.png") left 99% / contain no-repeat ;
+			}
+			&_img3 {
+				position: relative;
+				z-index: 2;
+				height: 100%;
+				background: url("../img/client_say/3.png") left bottom/  contain no-repeat;
+			}		
+		}
+	&__quotes {
+		width: 50px;
+		height: 50px;
+		background: url("../img/clientSay/quotes.svg") left  / auto no-repeat;
+	}
+	&__row {
+		display: flex;
+		position: relative;	
+		z-index: 3;
+		top: 0;
+		left: 0;
+		transition:  all .5s linear;	
+			&_container {		
+				height: 635px;		
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				position: relative;							
+			}
+			&_visible{
+				height: 198px;
+				width: 403px;
+				overflow: hidden;							
+			}		
+	}
+	&__slaid {
+		width: 300%;
+		height: 100%;
+	}
+	&__nav {			
+		position: relative;
+		top: 35px;
+		left: 65%;				
+	}
+}
+.slaid {
+	margin-top: 45px;
+		&__review {
+			width: 403px;
+			height: 93px;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 24px;
+			}
+		&__name {
+			margin-top: 40px;
+			font-weight: 500;
+			font-size: 18px;
+			line-height: 19px;			
+		}
+}
+.arrow {
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	position: absolute;
+	display: flex;    	
+	box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+	cursor: pointer;
+	transition: all 0.3s;
+	&__left {
+		width: 80px;
+		height: 80px;
+		border-radius: 4px 0 0 4px;
+		background:  $logoColor url("../img/icons/arrowLW.svg") center /30% no-repeat;
+		&:hover{				
+			transform: scale(1.1,1.1);	
+			box-shadow: 0px 7px 18px rgba(0, 0, 0, 0.8);
+			}	
+		&:active{				
+			transform: scale(1,1);	
+			box-shadow: inset 0px 0px 5px 5px rgba(0, 0, 0, 0.10);				
+			z-index: 2;				
+		}		
+	}
+	&__right {
+		left: 80px;			
+		width: 80px;
+		height: 80px;
+		background:#ffff url("../img/icons/arrowR.svg") center /30% no-repeat;
+		border-radius: 0 4px 4px 0;
+			&:hover{				
+				transform: scale(1.1,1.1);
+				box-shadow: 0px 7px 18px rgba(0, 0, 0, 0.8);				
+				z-index: 2;				
+			}	
+			&:active{				
+				transform: scale(1,1);	
+				box-shadow: inset 0px 0px 5px 5px rgba(0, 0, 0, 0.10);				
+				z-index: 2;				
+			}	
+	}
+}
+#ar0:checked~.slider__row_container>.slider__nav{
+	&>.arrowR1,.arrowL1{	visibility:visible;
+	}		
+}
+#arR1:checked,
+#arL3:checked{	
+	&~.slider__row_container>.slider__nav{	
+		&>.arrowR2,.arrowL2{	visibility:visible;}
+	}
+	&~.slider__row_container>.slider__row_visible>.slider__row{
+		transform: translateX(-100%);		
+	}
+	&~.slider__column_container>.slider__column_visible>.slider__column{
+		transform: translateY(-520px);			
+	}
+}
+#arR2:checked,
+#arL1:checked
+{	
+	&~.slider__row_container>.slider__nav{	
+		&>.arrowR3,.arrowL3{	visibility:visible;}
+	}
+	&~.slider__row_container>.slider__row_visible>.slider__row{
+		transform: translateX(-200%);		
+	}
+	&~.slider__column_container>.slider__column_visible>.slider__column{
+		transform: translateY(-1040px);			
+	}
+}
+#arR3:checked
+,#arL2:checked{	
+	&~.slider__row_container>.slider__nav{	
+		&>.arrowR1,.arrowL1{	visibility:visible;}
+	}
+	&~.slider__row_container>.slider__row_visible>.slider__row{
+		transform: translateX(0);		
+	}
+	&~.slider__column_container>.slider__column_visible>.slider__column{
+		transform: translateY(0);			
+	}
+}
+#arL2:checked,
+#arR4:checked{	
+	&~.slider__row_container>.slider__nav{	
+		&>.arrowR1,.arrowL1{	visibility:visible;}
+	}
+}
+/*_______________Download_app_____________________*/
+.downlodadApp {
+	height: 589px;
+	position: relative;
+	width: 100%;
+	&::after{
+		content:'';			
+		position: absolute;
+		z-index: 0;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: url("../img/donwlod_app/left_blue.png") left bottom / auto no-repeat,
+						url("../img/donwlod_app/right_braun.svg") right bottom / auto no-repeat;
+	}
+	&__img{
+		background: url("../img/donwlod_app/mockup.png") left top / contain no-repeat;	
+		flex: 0 1 50%;
+		position: relative;
+		z-index: 3;
+		/*До твоего ревю,эта картинка просто была задана background ,поєтому отступов там вобше не могла .добавил новый блок .*/
+		
+	}	
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		height: 100%;		
+		width: 1070px;
+		margin: 0 auto;
+		
+	}
+	&__column {
+		height: 77%;
+		position: relative;
+		z-index: 4;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-right: 45px;	
+		flex:  0 1 auto;
+		
+	}
+	&__texts {		
+		width: 444px;
+		height: 113px;		
+	}
+	&__title {
+		margin-left: 20px;		
+		font-weight: 700;
+		font-size: 25px;
+		line-height: 26px;			
+		text-align: center;		
+	}
+	&__text {	
+		margin: 10px 0 0 15px;		
+		text-align: center;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
+		opacity: 0.5;		
+	}
+	&__buttoms {	
+		display: flex;
+		width: 390px;
+		justify-content: space-between;
+		margin: 50px 0 0 40px;	
+	}
+}
+
+/*____________________Footer________________*/
+.footer {	
+	background-color: $logoColor;
+	color: #FFFFFF;
+	position: relative;
+	&::after{
+		content: "";
+		position: absolute;
+		top: 75%;
+		left: 0;
+		border-bottom: 2px solid white;
+		width: 100%;		
+	
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		max-width: 1250px;
+		margin: 0 auto;
+	}
+	&__mainRow {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 58px;
+	}
+	&__secondRow {
+		position: relative;
+		margin: 50px 0 20px 0;
+		}
+}
+.mainRow {
+	padding: 0 15px;
+	h6{			
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 19px;		
+		align-items: center;
+		display: inline-block;	
+		position: relative;		
+	}
+	a{			
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 14px;		
+		align-items: center;		
+		color: #FFFFFF;			
+	}	
+	&__column1 {
+	padding: 0 5px;
+	font-weight: 700;
+	font-size: 34px;
+	line-height: 35px;
+	flex: 0 1 10%;
+	}
+	&__column2 {
+		flex:0  1 45%;		
+		display: flex;
+		justify-content: space-around;
+	}
+	&__column3 {
+		flex:0  1 32.5%;
+		margin-left: 25px;
+		
+	}
+	&__quickLinks {
+		padding: 0 5px;
+	}
+	&__others {
+		padding:0  5px;
+	}
+	&__products {
+		padding: 0 5px;
+	}
+	&__titel {
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 26px;
+		
+				
+	}
+	&__form {
+		display:flex;
+		justify-content: space-between;
+	}
+}
+.form{
+	margin-top: 20px;	
+	&__email{
+		width: 248px;
+		height: 50px;
+		border-radius: 3px;
+		font-size: 14px;
+		line-height: 14px;	
+		padding-left: 20px;	
+		margin: 0 10px;	
+	}
+	&__button{
+		border-radius: 3px;
+		width: 116px;
+		height: 50px;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 17px;
+		color: $logoColor;
+		cursor: pointer;
+		&:hover{
+			box-shadow: 3px 3px 2px 0px rgb(65, 65, 65);
+		}
+		&:active{
+			box-shadow: inset 0px 0px 9px -2px rgba(0, 0, 0, 1);  
+		}
+	}
+}
+.quickLinks {	
+	&__title::before{
+		content: "";
+		position: absolute;
+		top: 25px;
+		left: 0;
+		border-bottom: 2px solid white;
+		width: 100%;	
+		/* Подчёркиваните сделал как ты советовал */	
+	}
+	&__item {
+		margin: 15px 0;
+		:hover{
+			text-decoration: underline;
+		}
+	}
+	&__item {
+		margin: 15px 0;
+		:hover{
+			text-decoration: underline;
+		}
+	}
+}
+.others{		
+	&__title::before{
+		content: "";
+		position: absolute;
+		top: 25px;
+		left: 0;
+		border-bottom: 2px solid white;
+		width: 100%;		
+	}
+	&__item {
+		margin: 15px 0;
+		:hover{
+			text-decoration: underline;
+		}
+	}
+	&__item {
+		margin: 15px 0;
+		:hover{
+			text-decoration: underline;
+		}
+	}
+}
+.products {
+	&__title {
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 19px;	
+		align-items: center;
+		&::before{
+			content: "";
+			position: absolute;
+			top: 25px;
+			left: 0;
+			border-bottom: 2px solid white;
+			width: 100%;			
+		}
+	}
+	&__item {
+		margin: 15px 0;
+		:hover{
+			text-decoration: underline;
+		}
+	}
+}
+.secondRow {	
+	padding: 0 15px;
+	display: flex;
+	justify-content: space-between;	
+	&__text {		
+		font-weight: 700;
+      font-size: 11px;
+		line-height: 11px;
+	}	
+	&__link{		
+		width: 30px;
+		height: 30px;
+		display: block;
+	}
+	&__icons {		
+		width: 150px;
+		display: flex;
+		justify-content:
+		space-between;
+		align-items: center;
+		}
+		&__icon {
+			&_yout {background: url("../img/icons/Youtube.svg") 0 0 / auto no-repeat;
+			}
+			&_ins {
+				background: url("../img/icons/Instagram.svg") 0 0 / auto no-repeat;
+			}
+			&_fb {
+				background: url("../img/icons/Facebook.svg") 0 0 / auto no-repeat;
+			}
+			&_tv {
+				background: url("../img/icons/Twitter.svg") 0 0 / auto no-repeat;
+			}
+		}	
+}
+/*______MEDIA ____________________*/ /**/
+@media  (max-width: 1400px) {
+	/*____________________Main________________*/ /**/
+	.main {	
+		 &:after{		  		
+		  background:
+		  url("../img/logo_page/mockup1_2.png") 80% 60% / auto no-repeat , /**/
+		  url("../img/logo_page/mockup2_2.png") 90% 47% / auto no-repeat  ;	/**/			 	
+		}		
+		&__title {			
+			font-size: 45px;			
+			
+		}		
+		&__text {		
+			font-size: 18px;
+			font-weight: 400;
+			
+		}				
+	}	
+	/*____________________downlodadApp________________*/ /**/
+	.downlodadApp {		
+		width: 100%;/**/		
+		&::after{			
+			background: url("../img/donwlod_app/left_blue.png") left bottom / auto no-repeat,
+							url("../img/donwlod_app/right_braun.svg") right bottom / auto no-repeat;					
+			}		
+		&__container {			
+			justify-content: space-around;/**/				
+			width: 100%;				
+		}
+		&__img{
+			background: url("../img/logo_page/mockup1_2.png") 80px 75px / auto no-repeat
+			, url("../img/logo_page/mockup2_2.png") left top / auto no-repeat;	
+			flex:  0 1 38%;	/**/				
+		}	
+		&__column {
+			flex: 0 1 auto;
+			height: 77%;			
+		}		
+	}
+		
+/*____________________whatWeDo________________*/ /**/
+	.whatWeDo {	
+		&__title {
+			padding-left:10px;	
+		}
+		&__columns {			
+		margin-left:10px;		
+		width: 100%;	
+		&>:first-child{			
+			margin: 0 84px 0px 0 ;										
+			}
+		}
+	}
+		/*_________WhatClientSay ________*/					
+	.slider__nav{	
+		left: 55%;
+	}	
+}	
+@media  (max-width: 960px) {
+	/*____________________Main________________*/ /**/
+	.main {			
+	  &:after{		 
+		  opacity: 0.7; 	
+		}	
+	}
+	/*_________WhatClientSay ________*/					
+	.slider {				
+		flex-direction: column;
+		padding-left: 25px;						
+			&__nav {				
+				top: -25%;					
+			}	
+		}
+	/*____________________whatWeDo________________*/ /**/
+	.whatWeDo {					
+		height: 100%;		
+		background:
+		url("../img/what-we-do__page/blue-right.svg") right top / auto no-repeat,
+		url("../img/what-we-do__page/2.png") left bottom / auto no-repeat;
+	&__title {	
+		padding: 25px 0 0 55px;
+		text-align: center;	
+		width: 80%;	
+		display: block;
+		position:static;			
+	}
+	&__columns {
+		height: 100%;		
+		flex-direction: column;	
+		align-items: center;
+			&>:first-child{			
+			margin: 15px 0 ;										
+			}
+		&>:last-child{	
+			display: flex;		
+			margin: 15px 0 ;	
+			&>:last-child{
+				margin-top: 20px;
+			}					
+		}
+	}
+	&__column {		
+		height: 100%;	
+		}	
+	}
+	
+	/*____________________downlodadApp________________*/ /**/
+	.downlodadApp {		
+		width: 100%;/**/		
+		&::after{			
+			background: url("../img/donwlod_app/left_blue.png") left bottom / auto no-repeat,
+							url("../img/donwlod_app/right_braun.svg") right bottom / auto no-repeat;					
+			}		
+		&__container {		
+			margin-top: 200px;	
+			justify-content: center;/**/				
+			width: 100%;				
+		}
+		&__img{	
+			position: absolute;	/**/	
+			background:none;	/**/
+			visibility: hidden;	/**/	
+		}	
+		&__column {
+			flex: 0 1 auto;
+			height: 77%;			
+		}
+		&__buttoms{
+			padding-top:15px;
+		}		
+	}
+
+	/*____________________Footer________________*/
+.footer {
+	&::after{
+		top: 85%;
+	}	
+	&__mainRow {		
+		flex-wrap: wrap;		
+	}
+	.mainRow__column1{		
+		flex: 1 1 100%;
+		padding-bottom: 25px;	
+		text-align: center;
+	}	
+	.mainRow__column2{
+		margin: 10px 5px;
+		flex: 1 1 100%;
+	}
+	.mainRow__column3{
+		flex: 0 1 45%;
+		margin: 0;	
+	}
+}
+.form{
+	&__email{
+		margin: 0;
+	}
+	&__button{
+		margin: 0 10px;			
+		}
+	}
+}
+@media  (max-width:767px) {
+	/*____________________Main________________*/ 
+	.main {				
+		&:after{		  		
+		background:
+		none , 
+		url("../img/logo_page/mockup2_2.png") 100% 47% / auto no-repeat  ;
+		opacity: 0.5;				 	
+		}					
+		&__title {			
+			font-size: 40px;			
+		}
+		&__text {	
+			font-size: 16px;					
+			width: 90%
+		}
+		&__buttons {
+			justify-content: space-around;
+			&>a{
+				margin: 5px 5px;
+			}
+			margin:  0 0 0  100px;				
+		}
+	}
+		/*____________________downlodadApp________________*/ /**/
+		.downlodadApp {		
+			width: 100%;/**/		
+			&::after{			
+				background: url("../img/donwlod_app/left_blue.png") left bottom / auto no-repeat,
+								url("../img/donwlod_app/right_braun.svg") right bottom / auto no-repeat;					
+				}		
+			&__container {		
+				margin-top: 200px;	
+				justify-content: center;/**/				
+				width: 100%;				
+			}
+			&__img{	
+				position: absolute;	/**/	
+				background:none;	/**/
+				visibility: hidden;	/**/	
+			}	
+			&__column {
+				flex: 0 1 400px;
+				height: 77%;			
+			}	
+			&__buttoms{
+				padding-top:20px;
+			}		
+		}
+}
+@media  (max-width: 550px) {
+	/*____________________Main________________*/ /**/
+	.main {		
+		&__container{		
+			height: 100%;
+		}
+		&__items {
+			height: 450px;	
+			top: 200px;			
+			justify-content: space-around;					
+		}
+		&__texts {
+			padding: 0 5px;		
+			color: $fontColorSecond;	
+		}
+		&__title {
+			font-weight: 500;
+			font-size: 33px;
+			line-height: 140%;
+			letter-spacing: 0.02em;		
+			max-width: 100%;
+			
+		}
+		&__text {
+			padding-top: 1%;
+			margin-top: 8px;
+			font-weight: 400;
+			font-size: 15px;
+			line-height: 36px;
+			width: 90%;
+		}
+		&__buttons {			
+				flex-wrap: wrap;				
+		}
+	}
+	/*____________________Header________________*/
+	.header {			
+		&__row {			
+			padding:0 10px ;
+			margin: 20px 0;		
+			align-items: center;
+		}
+		&__logo {			
+			flex: 1 0 50%;						
+		}
+		&__nav {	
+			flex: 0 1 50%;	
+				
+		}
+	}
+	.nav {	
+		&__lits {
+			flex-wrap: wrap;			
+		}
+		&__item {
+				padding: 10px;
+				flex: 0 1 50%;										
+		}			
+		&__link 	{	
+			white-space:nowrap;								
+			font-size: 18px;
+			}
+	}
+	/*____________________whatWeDo________________*/ /**/
+	.whatWeDo {					
+		height: 100%;			
+		background:
+		url("../img/what_we_do_page/blue_right.svg") right top / auto no-repeat,
+		url("../img/what_we_do_page/2.png") left bottom / auto no-repeat;				 
+	
+	&__title {	
+		padding: 25px 0 0 55px;
+		text-align: center;	
+		width: 80%;	
+		display: block;
+		position:static;		
+		font-size: 22px;	
+	}
+	&__columns {
+		height: 100%;		
+		flex-direction: column;	
+		align-items: center;
+			&>:first-child{			
+			margin: 15px 0 ;											
+			}
+		&>:last-child{	
+			display: flex;		
+			margin: 0px 0 ;	
+			&>:last-child{
+				margin-top: 20px;
+			}					
+		}
+	}
+	&__column {		
+		height: 100%;	
+		}	
+	}
+	.card {		
+		max-width: 270px; 	
+		height: 100px;		
+		box-shadow: 5px 20px 30px rgba(74, 153, 211, 0.2);		
+		display:block;		
+		&_bg1 {
+			background: white url("../img/what_we_do_page/1.svg") 5% 60% /20% no-repeat;	
+		}	
+		&_bg2 {
+			background:white url("../img/what_we_do_page/3.svg") 5% 60% /20% no-repeat;		
+			&>.card__items{				
+				height:100px;			
+			}	
+			&>.card__items>img{
+				width:  50px;	
+				height: 50px ;	
+				margin: 0px 0 0px 0px;	
+				position: absolute;	
+				visibility: hidden;				
+			}
+			&>.card__items>a{
+				margin-top: 0px;
+			}
+		}
+		&_bg3 {
+			background: white url("../img/what_we_do_page/2.svg") 5% 60% /20% no-repeat;	
+		}
+		&__items {
+			width: 100%;	
+			margin: 0px;
+			height: 100px;	
+			display: flex;	
+			flex-direction: row;	
+			align-items: center;	
+			justify-content: flex-end;
+		}
+		&__title {
+			letter-spacing: 0.02em;		
+			font-size: 13px;
+			margin-right: 15px;	
+		}
+		&__text {
+			position: absolute;	
+			visibility: hidden;	
+			margin-top: 20px;				
+			font-size: 16px;		
+		}
+		&__link {
+			position: absolute;	
+			visibility: hidden; 	
+			margin: 0 0 0 0;						
+			font-size: 14px;			
+			color:$logoColor;		
+			background: url("../img/icons/arrow_24px.svg") 40% 0 / 10% no-repeat;
+		}
+		&__label{			
+		width: 110px;
+		height: 25px;			
+		background-color: $logoColor;	
+		padding: 4px 3px;	
+		border-radius: 2px;
+		font-size: 14px;
+		text-align: center;	
+		cursor: pointer;
+		margin-right: 15px;
+		color: #ffff;			
+			&_open{
+				position: static;
+				visibility:visible;
+			}	
+			&_close{
+				position: absolute;
+				visibility: hidden;
+			}			
+		}
+	}
+	#card1O:checked{
+		&~.card_bg1{
+			background: url("../img/what_we_do_page/1.svg")  15% 15% /20% no-repeat;			
+		}	
+		& ~.card{
+			max-width: 270px; 	
+			height: 260px;	
+			background-color: white;				
+			transition: all 0.5s ease-in 0s;					
+			&>.card__items{
+				flex-direction: column;
+				margin-top: 150px;
+				transition: all 0.5s ease-in 0s;				
+			&>.card__link {
+				position: static;	
+				visibility: visible; 	
+				margin: 0 20px 0 0;						
+				font-size: 14px;		
+				color:$logoColor;		
+				background: url("../img/icons/arrow_24px.svg") right/ 10% no-repeat;
+			}
+			&>.card__text {
+				position: static;	
+				visibility: visible;
+				margin-top: 20px;				
+				font-size: 10px;		
+				width: 200px;	
+			}
+			&>.card__label_open{
+				position: absolute;
+				visibility:hidden;
+				}				
+			&>.card__label_close{
+				position: static;
+				visibility:visible;				
+			}
+		}		
+	}
+	}
+	#card2O:checked{
+		&~.card_bg2{
+			background: url("../img/what_we_do_page/3.svg")   15% 15% /20% no-repeat;
+		}	
+		& ~.card_bg2{
+			max-width: 270px; 	
+			height: 260px;	
+			background-color: white;	
+			transition: all 0.5s ease-in 0s;			
+			&>.card__items{
+				transition: all 0.5s ease-in 0s;						
+				flex-direction: column;
+				margin-top: 150px;
+				&>.card__link {
+					position: static;	
+					visibility: visible; 
+					margin: 0 20px 0 0;						
+					font-size: 14px;			
+					color:$logoColor;		
+					background: url("../img/icons/arrow_24px.svg") right/ 10% no-repeat;
+					}
+				&>.card__text {
+					position: static;	
+					visibility: visible; 	
+					margin-top: 20px;				
+					font-size: 10px;		
+					width: 200px;	
+				}
+				&>.card__label_open{
+					position: absolute;
+					visibility:hidden;
+					}				
+				&>.card__label_close{
+					position: static;
+					visibility:visible;				
+				}
+			}
+		}		
+	}
+	#card3O:checked{
+		&~.card_bg3{
+			background: url("../img/what_we_do_page/2.svg")  15% 15% /20% no-repeat;
+		}	
+		& ~.card{
+			max-width: 270px; 
+			height: 260px;	
+			background-color: white;	
+			transition: all 0.5s ease-in 0s;			
+			&>.card__items{
+				transition: all 0.5s ease-in 0s;		
+				flex-direction: column;
+				margin-top: 150px;
+				&>.card__link {
+					position: static;
+					visibility: visible; 	
+					margin: 0 20px 0 0;					
+					font-size: 14px;			
+					color:$logoColor;		
+					background: url("../img/icons/arrow_24px.svg") right/ 10% no-repeat;
+				}
+				&>.card__text {
+					position: static;	
+					visibility: visible; 	
+					margin-top: 20px;				
+					font-size: 10px;	
+					width: 200px;	
+				}			
+			&>.card__label_open{
+				position: absolute;
+				visibility:hidden;
+				}				
+			&>.card__label_close{
+				position: static;
+				visibility:visible;				
+			}
+		}		
+	}
+	}
+	#card1C:checked{
+	& ~.card{	
+		transition: all 0.5s ease-in 0s;
+		&>.card__items{						
+			transition: all 0.5s ease-in 0s;			
+			}
+		}
+	}
+	#card2C:checked{
+	& ~.card_bg2{	
+		transition: all 0.5s ease-in 0s;
+		&>.card__items{							
+			transition: all 0.5s ease-in 0s;
+			}
+	}
+	}
+	#card3C:checked{
+	& ~.card{		
+		transition: all 0.5s ease-in 0s;
+		&>.card__items{								
+			transition: all 0.5s ease-in 0s;
+			}
+		}
+	}
+	/*________________howItWorks_____________________*/
+	.howItWorks {			
+		&__titls {		
+			font-size: 24px;		
+		}
+		&__row {
+			margin-top: 85px;			
+			flex-wrap: wrap;			
+		}
+		&__column {
+			padding: 15px 7px;			
+			height: 130px;		
+		}
+		&__columnTitle {
+			margin-top: 10px;		
+			font-size: 17px;
+				
+		}
+		&__columnText {
+			width: 250px;	
+			margin-top: 10px;		
+			font-size: 15px;		
+		}
+	}
+/*_________WhatClientSay ________*/		
+	.WhatClientSay{
+			&__title {
+			color: $fontColorFirst;
+			padding-top:140px;
+			font-weight: 700;
+			font-size: 20px;
+			line-height: 26px;		
+		}
+	}
+	.slider {		
+		&__column {					
+			width: 325px;					
+		}
+		&__row {				
+			&_container {	
+				width: 320px;										
+			}
+			&_visible{				
+				width: 320px;										
+			}		
+		}	
+		&__nav {
+			z-index: 4;			
+			top: -10%;
+			left: 70%;			
+		}	
+		&__quotes{
+			margin-left: 10px;
+		}
+	}	
+	.arrow {		
+			&__left {
+				width: 40px;
+				height: 40px;					
+			}	
+			&__right {
+				left: 40px;			
+				width: 40px;
+				height: 40px;				
+			}
+	}
+	.slaid {
+		margin-left: 20px;
+			&__review {
+				width: 300px;
+				font-size: 15px;
+			}
+	}
+
+	/*____________________downlodadApp________________*/
+	.downlodadApp {		
+		width: 100%;/**/		
+		&::after{			
+			background: url("../img/donwlod_app/left_blue.png") left bottom / auto no-repeat,
+							url("../img/donwlod_app/right_braun.svg") right bottom / auto no-repeat;					
+			}	
+		&__column{
+			align-items: center;
+		}
+		&__texts{
+			width: 370px;			
+		}				
+	}
+	/*____________________Footer________________*/
+	.mainRow__column2{
+		margin: 20px 0;
+	}
+}	
+@media (max-width: 320px) {
+	/*____________________Main________________*/ /**/
+	.main {	
+		&.__title{
+			font-size: 35px;
+		}	
+		 &__buttons{
+			margin-right: 20%;
+		 }		 	
+	}
+}
